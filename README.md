@@ -8,13 +8,13 @@
 # Table of Content
 
 1. [Description](#description)
-2. [Installation](#installation)
+2. [Video](#video)
 3. [Usage](#usage)
 4. [Credits](#credits)
 5. [License](#license)
 6. [Features](#features)
 
-# Installation
+# Video
 
 Link to videos can be found here ->
 * [Google Drive link for screen recording of command line](https://drive.google.com/file/d/1pS4zMWv99hBHPQ2mQ7W2RV_oWaSTNH9u/view)
