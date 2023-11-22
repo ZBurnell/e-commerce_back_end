@@ -2,7 +2,8 @@
  Object-Relational Mapping (ORM): E-Commerce Back End
 
 # Description
-   Hello and welcome to my application. I created this application as a way to show off what I have learned about API's and how to implement them on the back end. This was a challeneging at times and allowed me an opppurtunity to learn how to troubleshoot issues between MYSQL and the local server.
+
+   Hello and welcome to my E-Commerce application. I created this application as a way to show off what I have learned about API's and how to implement them on the back end. this simple application allows a user to see, update, delete and add a product all from the server side. I was able to check all functionality using Insomnia. This propject was a challeneging at times, but it allowed me an opppurtunity to further hone my troubleshooting skills while working on a more complex application.
 
 # Table of Content
 
@@ -15,7 +16,9 @@
 
 # Installation
 
-Link to video can be found here -> [Google Drive link for screen recording](https://drive.google.com/file/d/1eBCj28YHtWr0f4N_2VRq9CBDhgJuNPe5/view)
+Link to videos can be found here ->
+* [Google Drive link for screen recording of command line](https://drive.google.com/file/d/1pS4zMWv99hBHPQ2mQ7W2RV_oWaSTNH9u/view)
+* [Google Drive link for screen recording of Insomnia](https://drive.google.com/file/d/1VS6F5H2iarmG0XcSyd2e0LZatHFjRmk4/view)
 
 # Usage
 
@@ -60,4 +63,5 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 # Features
-The project is operating as intended with no bugs found so far
+
+This application allows a user to manage and view all of their inventory from Insomnia. 

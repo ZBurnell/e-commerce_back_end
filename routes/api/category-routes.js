@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     await Category.findByPk(req.params.id, {attributes: ['id', 'category_name'],
 		    include: [{model: Product, attributes: ['id', 'product_name', 'price', 'stock', 'category_id']}]
-	  })  .then((category) => {
-        res.json(category);
+	  })  .then((categories) => {
+        res.json(categories);
     })  .catch((err) => {
         res.json(err);
     });
@@ -23,8 +23,8 @@ router.get('/:id', async (req, res) => {
 
 // create a new category
 router.post('/', async (req, res) => {
-    await Category.create(req.body)
-    .then((newCategory) => res.status(200).json(newCategory))
+    await Category.create(req.body.category_name)
+    .then((categories) => res.status(200).json(categories))
     .catch((err) => {
         console.log(err);
         res.status(400).json(err);
@@ -33,10 +33,8 @@ router.post('/', async (req, res) => {
 
 // update category
 router.put('/:id', async (req, res) => {
-    await Category.update(req.body, {
-		    where: {id: req.params.id}
-	  })  .then(cat => Category.findByPk(req.params.id))
-        .then((updatedCategory) => res.status(200).json(updatedCategory))
+    await Category.update(req.body, {where: {id: req.params.id}
+	})  .then((categories) => res.status(200).json(categories))
         .catch((err) => {res.json(err);
     });
 });
@@ -45,7 +43,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     await Category.destroy({
 		    where: {id: req.params.id}
-	  })    .then((rmvdCategory) => {
+	  })    .then((categories) => {
 		    res.json(`The category was removed from the database`);
 	  })	  .catch((err) => {
 		    res.json(err);

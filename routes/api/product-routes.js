@@ -17,9 +17,6 @@ router.get('/', async (req, res) => {
 		});
 });
 
-
-
-
 // get one product
 router.get('/:id', (req, res) => {
   Product.findByPk(req.params.id, {
@@ -34,14 +31,18 @@ router.get('/:id', (req, res) => {
 
 // create new product
 router.post('/', (req, res) => {
-    Product.create(req.body)
-		.then((product) => {
+    Product.create({ 
+		product_name: req.body.product_name,
+		price: req.body.price,
+		stock: req.body.stock,
+		category_id: req.body.category_id
+	})	.then((product) => {
 			if (req.body.tagIds.length) {
 				const productTagIdArr = req.body.tagIds.map((tag_id) => {
 					return {product_id: product.id,	tag_id};
 				});
 				return ProductTag.bulkCreate(productTagIdArr);
-			}else{
+			}	else{
 			res.status(200).json(product);
 			}
 		})	.then((productTagIds) => res.status(200).json(productTagIds))
@@ -51,10 +52,10 @@ router.post('/', (req, res) => {
 		});
 });
 
-// update product
+// update a product
 router.put('/:id', (req, res) => {
   Product.update(req.body, {
-		where: {id: req.params.id},
+		where: {id: req.params.id}
 		})	.then((product) => {
 			return ProductTag.findAll({where: {product_id: req.params.id}});
 		})	.then((productTags) => {
@@ -80,8 +81,8 @@ router.put('/:id', (req, res) => {
 //delete a product
 router.delete('/:id', (req, res) => {
 	let deletedProduct = Product.findByPk(req.params.id);
-	Product.destroy({where: {id: req.params.id}})
-		.then((product) => {
+	Product.destroy({where: {id: req.params.id}
+	})	.then((product) => {
 		res.json(`${deletedProduct} was removed from database`);
 	})	.catch((err) => {
 		res.json(err);
